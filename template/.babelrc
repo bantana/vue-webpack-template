@@ -8,20 +8,20 @@
     }],
     "stage-2"
   ],{{#unless_eq projectType "lib"}}
-  "plugins": ["transform-vue-jsx", "transform-runtime"],{{/unless_eq}}
+  "plugins": [{{#classStyle}}"transform-decorators-legacy", "transform-class-properties", {{/classStyle}}"transform-vue-jsx", "transform-runtime"],{{/unless_eq}}
   "env": {
     {{#if_eq projectType "lib"}}
     "development": {
-      "plugins": ["transform-runtime"]
+      "plugins": [{{#classStyle}}"transform-decorators-legacy", "transform-class-properties", {{/classStyle}}"transform-vue-jsx", "transform-runtime"]
     },
     "production": {
       "presets": ["es2015"],
-      "plugins": ["babel-plugin-add-module-exports"]
+      "plugins": [{{#classStyle}}"transform-decorators-legacy", "transform-class-properties", {{/classStyle}}"transform-vue-jsx", "babel-plugin-add-module-exports"]
     },{{/if_eq}}{{#if_or unit e2e}}
     "test": {
       "presets": ["env", "stage-2"]{{#if_eq runner "karma"}},
-      "plugins": ["transform-vue-jsx", "istanbul"{{#if_eq projectType "lib"}}, "transform-runtime"{{/if_eq}}]{{/if_eq}}{{#if_eq runner "jest"}},
-      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]{{/if_eq}}
+      "plugins": [{{#classStyle}}"transform-decorators-legacy", "transform-class-properties", {{/classStyle}}"transform-vue-jsx", "istanbul"{{#if_eq projectType "lib"}}, "transform-runtime"{{/if_eq}}]{{/if_eq}}{{#if_eq runner "jest"}},
+      "plugins": [{{#classStyle}}"transform-decorators-legacy", "transform-class-properties", {{/classStyle}}"transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]{{/if_eq}}
     }{{/if_or}}
   }
 }

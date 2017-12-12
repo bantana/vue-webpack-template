@@ -1,12 +1,16 @@
 import Vue from 'vue'
-import Component from 'vue-class-component'
-{{#unless router}}
+{{#classStyle}}import Component from 'vue-class-component'
 
-import HelloWorld from './components/HelloWorld.vue'
+{{/classStyle}}
+{{#unless router}}import HelloWorld from './components/HelloWorld.vue'
+
 {{/unless}}
-
-@Component{{#unless router}}({
-  components: { HelloWorld }{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
+{{#classStyle}}@Component{{#unless router}}({
+  components: { HelloWorld }
 }){{/unless}}
 export default class App extends Vue {
-}
+
+}{{else}}export default Vue.extend({
+  name: 'app'{{#router}}{{else}},
+  components: { HelloWorld }{{/router}}
+}){{/classStyle}}

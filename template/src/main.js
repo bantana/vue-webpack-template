@@ -3,6 +3,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 import Vue from 'vue'
+{{#classStyle}}
+import './hooks' // This must be imported before any component
+
+{{/classStyle}}
 import App from './App.vue'
 {{#router}}
 import router from './router'

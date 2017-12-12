@@ -72,7 +72,8 @@ exports.scriptLoaders = function(options) {
     js: {loader: 'babel-loader', options: options.js}{{#if_eq compiler "typescript"}},
     ts: [
       {
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: options.js
       },
       {
         loader: 'ts-loader',

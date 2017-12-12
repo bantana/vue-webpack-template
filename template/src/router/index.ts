@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
-  ]{{#if_eq tslintConfig "airbnb"}},{{/if_eq}}
+      component: HelloWorld
+    }
+  ]
 })

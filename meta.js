@@ -71,12 +71,16 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?'
     },
+    classStyle: {
+      type: 'confirm',
+      message: 'Use Class-Style Components (vue-class-component + vue-property-decorators)?',
+    },
     compiler: {
       type: 'list',
       message: 'Which language do you want to use?',
       choices: [
         {
-          name: 'TypeScript (ts-loader + babel + vue-class-component)',
+          name: 'TypeScript (ts-loader + babel)',
           value: 'typescript',
           short: 'typescript'
         },
@@ -197,6 +201,8 @@ module.exports = {
     '.eslintignore': 'lint',
     'tslint.json': 'tslint',
     'tsconfig.json': "compiler == 'typescript'",
+    'src/hooks.ts': "compiler == 'typescript' && classStyle",
+    'src/hooks.js': "compiler != 'typescript' && classStyle",
     'src/**/*.ts': "compiler == 'typescript'",
     'src/**/*.js': "compiler != 'typescript'",
     'config/test.env.js': 'unit || e2e',
